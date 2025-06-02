@@ -18,7 +18,7 @@ body {
 /* Main container styles */
 .todo-container {
     width: 600px;
-    max-width: 100%;
+    max-width: calc(100% - 20px);
     margin: 40px auto 20px auto;
     padding: 20px;
     background: white;
@@ -302,6 +302,9 @@ button[type="submit"]:active {
     max-width: 600px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer p {
@@ -346,6 +349,24 @@ button[type="submit"]:active {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    body {
+        padding: 10px 10px 0 10px;
+    }
+    
+    .todo-container {
+        margin: 20px auto 10px auto;
+        padding: 15px;
+    }
+    
+    #todoForm {
+        flex-direction: column;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
     .footer {
         padding: 15px 0;
     }
@@ -358,5 +379,22 @@ button[type="submit"]:active {
         width: 36px;
         height: 36px;
         font-size: 20px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .todo-container {
+        padding: 10px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
     }
 }
