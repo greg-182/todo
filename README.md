@@ -2,6 +2,9 @@
 
 A clean and functional To-Do application built with vanilla JavaScript, HTML, and CSS.
 
+[Live Demo](https://greg-182.github.io/todo/)
+
+
 ## Features
 - Add new tasks
 - Mark tasks as complete
