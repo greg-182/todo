@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://greg-182.github.io/todo/sitemap.xml
