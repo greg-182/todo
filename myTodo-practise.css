@@ -1,0 +1,281 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* Main container styles */
+.todo-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Form styles */
+#todoForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.todo-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+button[type="submit"] {
+    padding: 12px 24px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+    background: #45a049;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.95) translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Todo list styles */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Todo item container layout */
+.todo-item-container {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.todo-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 15px;
+}
+
+/* Checkbox styles */
+.todo-check {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Label styles */
+.todo-item-label {
+    flex: 1;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    position: relative;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+/* Show edit hint on hover */
+.todo-item-label:hover {
+    background-color: #f0f0f0;
+}
+
+.todo-item-label:hover::after {
+    content: '✎';
+    position: absolute;
+    right: 4px;
+    opacity: 0.5;
+    font-size: 14px;
+}
+
+.todo-item-label.line-through {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.todo-item-label.line-through:hover::after {
+    content: none;
+}
+
+/* Delete button styles */
+.x-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.x-button:hover {
+    background: #a11111;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.x-button:active {
+    transform: scale(0.95) translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Edit input styles */
+.todo-edit-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    display: none;
+}
+
+.todo-edit-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+/* Show/hide elements when editing */
+.todo-item-container.editing .todo-item-label {
+    display: none;
+}
+
+.todo-item-container.editing .todo-edit-input {
+    display: block;
+}
+
+/* Template item styles */
+.todo-item-container.template {
+    display: none;
+}
+
+/* Item number styles */
+.item-number {
+    color: #999;
+    font-size: 14px;
+    min-width: 25px;
+    text-align: right;
+    padding-right: 4px;
+}
+
+/* Drag handle styles */
+.drag-handle {
+    cursor: move;
+    cursor: grab;
+    padding: 0 8px;
+    color: #999;
+    font-size: 18px;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.drag-handle:hover {
+    color: #666;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+/* Dragging styles */
+.todo-item-container.dragging {
+    opacity: 0.5;
+    background: #f8f8f8;
+    position: relative;
+    z-index: 10;
+}
+
+.todo-item-container.drag-over {
+    position: relative;
+}
+
+.todo-item-container.drag-over::before,
+.todo-item-container.drag-over::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4CAF50;
+    pointer-events: none;
+}
+
+.todo-item-container.drag-over::before {
+    top: 0;
+}
+
+.todo-item-container.drag-over::after {
+    bottom: 0;
+}
+
+.todo-item-container.dragging.drag-over::before,
+.todo-item-container.dragging.drag-over::after {
+    display: none;
+}
+
+/* Footer styles */
+.todo-footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+#itemsRemaining {
+    font-weight: bold;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="myTodo-practise.css">
+</head>
+<body>
+    <!-- Main container for the todo app -->
+    <div class="todo-container">
+        <h1>My Todo List</h1>
+
+        <!-- Form for adding new todos -->
+        <form id="todoForm">
+            <input 
+                type="text" 
+                class="todo-input" 
+                placeholder="What needs to be done?"
+                required
+            >
+            <button type="submit">Add Todo</button>
+        </form>
+
+        <!-- Container for the list of todos -->
+        <ul class="todo-list">
+            <!-- Template for a single todo item (hidden) -->
+            <li class="todo-item-container template" draggable="true">
+                <div class="todo-content">
+                    <span class="item-number"></span>
+                    <span class="drag-handle" title="Drag to reorder">⋮⋮</span>
+                    <input type="checkbox" class="todo-check">
+                    <span class="todo-item-label" title="Double-click to edit">Example Todo Item</span>
+                    <input type="text" class="todo-edit-input">
+                </div>
+                <button class="x-button" title="Delete todo">×</button>
+            </li>
+        </ul>
+
+        <!-- Footer with counter -->
+        <div class="todo-footer">
+            <span id="itemsRemaining">0</span> items remaining
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="myTodo-practice.js"></script>
+</body>
+</html>
