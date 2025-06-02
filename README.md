@@ -16,7 +16,7 @@ A clean and functional To-Do application built with vanilla JavaScript, HTML, an
 
 ## Getting Started
 1. Clone the repository
-2. Open `myTodo.html` in your web browser
+2. Open `index.html` in your web browser
 3. Start managing your tasks!
 
 ## Technologies Used
